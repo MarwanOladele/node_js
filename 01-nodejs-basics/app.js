@@ -16,3 +16,4 @@ const greet = (name) => {
   console.log(msg);
 };
 greet("Marwan");
+

@@ -18,3 +18,4 @@ if (bcrypt.compareSync(user.password, hashPassword)) {
 } else {
   console.log("Password does not match");
 }
+

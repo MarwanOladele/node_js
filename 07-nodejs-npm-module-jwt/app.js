@@ -21,3 +21,4 @@ jwt.verify(token, secretKey, function (err, decoded) {
   if (err) throw err;
   console.log(decoded);
 });
+

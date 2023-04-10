@@ -1,7 +1,6 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const { log } = require("console");
 
 const hostname = "localhost";
 const port = 5900;
@@ -23,6 +22,11 @@ const server = http.createServer((req, res) => {
     });
   } else if (url === "/contact") {
     fs.readFile(path.join(__dirname, "contact.html"), "utf8", (err, data) => {
+      if (err) throw err;
+      res.end(data);
+    });
+  } else {
+    fs.readFile(path.join(__dirname, "404.html"), "utf8", (err, data) => {
       if (err) throw err;
       res.end(data);
     });

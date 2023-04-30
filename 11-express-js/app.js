@@ -1,17 +1,17 @@
-const express = require('express')
-const app = express()
+const express = require("express");
+const path = require("path");
+const app = express();
 
-app.get('/', (req, res) => {
-    res.status(200).send('yaaaaaaay')
-})
+app.use(express.static('./public'))
 
+app.get("/", (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, "navbar-app", "index.html"));
+});
 
-app.all('*', (req, res) => {
-    res.status(400).send('yaaaaaaay')
-})
-
-
+app.all("*", (req, res) => {
+  res.status(404).send("Rsources not found");
+});
 
 app.listen(5000, () => {
-    console.log('Server listening on port 5000...');
-}) 
+  console.log("Server listening on port 5000...");
+});
